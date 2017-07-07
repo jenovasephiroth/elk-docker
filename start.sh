@@ -84,7 +84,9 @@ else
         > /etc/init.d/elasticsearch.new && mv /etc/init.d/elasticsearch.new /etc/init.d/elasticsearch \
         && chmod +x /etc/init.d/elasticsearch
   fi
-
+  
+  chown -R elasticsearch:elasticsearch /var/log/elasticsearch /var/lib/elasticsearch
+  
   service elasticsearch start
 
   # wait for Elasticsearch to start up before either starting Kibana (if enabled)
